@@ -5,8 +5,11 @@
       name=""
       id=""
       v-focus
-      v-clipboardCopy:copy="coppied"
     />
+    <p v-clipboardCopy:click.top="{
+      text: textForCopy,
+      callback: coppied
+    }">Element for click directive</p>
     <div
       v-sticky:click.bottom.right="stickyFunc"
       class="message"
@@ -31,7 +34,8 @@ export default {
   data () {
     return {
       text1: 'Some text1',
-      text2: 'Somet text2'
+      text2: 'Somet text2',
+      textForCopy: 'Some text'
     }
   },
 
