@@ -3,3 +3,13 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  name: 'About',
+
+  created () {
+    this.$myCustomPlugin.showMessage()
+  }
+}
+</script>
