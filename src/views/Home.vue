@@ -10,10 +10,7 @@
       text: textForCopy,
       callback: coppied
     }">Element for click directive</p>
-    <div
-      v-sticky:click.bottom.right="stickyFunc"
-      class="message"
-    >Some custom text</div>
+    <Container v-sticky:click.bottom.right="stickyFunc">Some text for directive</Container>
   </div>
 </template>
 
@@ -21,9 +18,14 @@
 import focus from '@/directives/focus'
 import clipboardCopy from '@/directives/clipboardCopy'
 import sticky from '@/directives/sticky'
+import Container from '@/components/Container'
 
 export default {
   name: 'home',
+
+  components: {
+    Container
+  },
 
   directives: {
     focus,
