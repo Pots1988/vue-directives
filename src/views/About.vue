@@ -1,27 +1,38 @@
 <template>
   <div class="about">
     <button @click="showBlock = !showBlock">Trigger animation</button>
-    <transition name="anim">
+    <transition
+      name="anim"
+      appear
+    >
       <div
         class="block"
         v-if="showBlock"
       >Some text</div>
     </transition>
+
+    <!-- <Button /> -->
+    <!-- <Button>Custom text</Button> -->
+    <ExtendedButton />
   </div>
 </template>
 
 <script>
+// import Button from '@/components/Button'
+import ExtendedButton from '@/components/ExtendedButton'
+
 export default {
   name: 'About',
 
-  data () {
-    return {
-      showBlock: false
-    }
+  components: {
+    // Button,
+    ExtendedButton
   },
 
-  created () {
-    this.$myCustomPlugin.showMessage()
+  data () {
+    return {
+      showBlock: true
+    }
   }
 }
 </script>
@@ -39,22 +50,19 @@ export default {
 
   .anim-enter {
     background: red;
+    opacity: 0;
   }
 
   .anim-enter-active {
-    transition: background-color 2s;
+    transition: 2s;
   }
 
   .anim-enter-to {
     background: green;
   }
 
-  .anim-leave {
-    opacity: 1;
-  }
-
   .anim-leave-active {
-    transition: opacity 2s;
+    transition: 2s;
   }
 
   .anim-leave-to {
